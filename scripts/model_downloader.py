@@ -108,11 +108,11 @@ def download_model_button_click(token, url, tag):
 def create_common_tag(tag):
     html = create_html(tag)
 
-    hugging_face_token_text = gr.Textbox(elem_id="hugging_face_token_text", label="hugging_face_token", visible=True)
-    download_model_button = gr.Button(elem_id="download_model_button", visible=False)
-    download_url_text = gr.Textbox(elem_id="download_url_text", visible=False)
-    download_tag_text = gr.Textbox(value=tag, elem_id="download_tag_text", visible=False)
-    download_html = gr.HTML(html)
+    hugging_face_token_text = gr.Textbox(elem_id=f"hugging_face_token_text_{tag}", label="hugging_face_token", visible=True)
+    download_model_button = gr.Button(elem_id=f"download_model_button_{tag}", visible=False)
+    download_url_text = gr.Textbox(elem_id=f"download_url_text_{tag}", visible=False)
+    download_tag_text = gr.Textbox(value=tag, elem_id=f"download_tag_text_{tag}", visible=False)
+    download_html = gr.HTML(html, elem_id=f"download_html_{tag}")
 
     download_model_button.click(
         fn=download_model_button_click,
